@@ -466,19 +466,12 @@ function App() {
                   <div className="process-step">
                     <div className="step-num">2</div>
                     <div className="step-text">
-                      <strong>書類選考</strong>
-                      <p>履歴書・職務経歴書をお送りいただき、書類選考を行います</p>
-                    </div>
-                  </div>
-                  <div className="process-step">
-                    <div className="step-num">3</div>
-                    <div className="step-text">
                       <strong>面接</strong>
                       <p>当社にてお会いし、職務内容や待遇について詳しくお伝えします</p>
                     </div>
                   </div>
                   <div className="process-step">
-                    <div className="step-num">4</div>
+                    <div className="step-num">3</div>
                     <div className="step-text">
                       <strong>内定・入社</strong>
                       <p>各研修を経て実務へ。サポート体制を整えて迎えます</p>

@@ -58,11 +58,11 @@ body {
   z-index: 100;
   background: var(--white);
   border-bottom: 1px solid var(--border-color);
-  padding: 16px 0;
+  padding: 12px 0;
 }
 
 main {
-  padding-top: 96px;
+  padding-top: 80px;
 }
 
 .site-header .container {
@@ -75,7 +75,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 0;
+  padding: 8px 0;
   gap: 30px;
 }
 
@@ -448,7 +448,8 @@ main {
   gap: 20px;
   align-items: flex-start;
   background: white;
-  padding: 24px;
+  padding: 20px 20px 10px;
+  min-height: 140px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -870,8 +871,8 @@ main {
 
 .process-steps {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
 .process-step {
