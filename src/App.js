@@ -1,13 +1,47 @@
 import './App.css';
-import heroPlaceholder from './assets/hero-placeholder.svg';
+import { useState, useEffect } from 'react';
+import img1 from './assets/1.png';
+import img2 from './assets/2.png';
+import img3 from './assets/3.png';
+import img4 from './assets/4.png';
+import img5 from './assets/5.png';
+import img6 from './assets/6.png';
+import img7 from './assets/7.png';
+import img8 from './assets/8.png';
+import img9 from './assets/9.png';
+import img10 from './assets/10.png';
+import img11 from './assets/11.png';
+import img12 from './assets/12.png';
+import img13 from './assets/13.png';
+import gen1 from './assets/12826.png';
+import gen2 from './assets/14375.png';
+import gen3 from './assets/14500.png';
+import gen4 from './assets/14504.png';
+import gen5 from './assets/18127.png';
+import gen6 from './assets/18133.png';
+import gen7 from './assets/27830.png';
+import gen8 from './assets/28073.png';
 
 function App() {
+  const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
+  const dispatchImages = [img10, img11, img12, img13];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [recruitModalOpen, setRecruitModalOpen] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [images.length]);
   return (
     <div className="site">
       <header className="site-header">
         <div className="container header-inner">
           <div className="brand">
-            <span className="brand-mark">SW</span>
+            <span className="brand-mark">
+              <img src="/logo.png" alt="STARWRECKER" />
+            </span>
             <div>
               <span className="brand-name">STARWRECKER</span>
               <span className="brand-sub">Heavy Recovery & Road Service</span>
@@ -25,19 +59,20 @@ function App() {
       </header>
 
       <main>
-        <section className="hero">
+        <section className="hero" style={{ backgroundImage: `url(${images[currentImageIndex]})` }}>
           <div className="container hero-grid">
             <div className="hero-copy">
               <span className="hero-kicker">INCIDENT RESPONSE / 24-7</span>
               <h1>
-                緊急現場を
+                確かな技術で、
                 <br />
-                収束させる
-                <span>プロフェッショナル</span>
+                現場を守る。
+                <span>一つひとつを確実に。</span>
               </h1>
               <p>
-                初動スピード、大型車・特殊車両への対応、安全管理まで。
-                事故・故障・災害時の現場復旧を一括で担います。
+                事故・故障対応から車両製作まで。
+                <br />
+                専門技術と責任ある対応で現場を支えます。
               </p>
               <div className="hero-cta">
                 <a className="btn primary" href="#contact">緊急連絡をする</a>
@@ -58,29 +93,7 @@ function App() {
                 </div>
               </div>
             </div>
-            <div className="hero-visual">
-              <div className="photo-frame">
-                <img
-                  className="photo-image"
-                  src={heroPlaceholder}
-                  alt="レッカー車の現場写真"
-                />
-              </div>
-              <div className="callout">
-                <div>
-                  <span>大型車対応</span>
-                  <strong>OK</strong>
-                </div>
-                <div>
-                  <span>夜間作業</span>
-                  <strong>OK</strong>
-                </div>
-                <div>
-                  <span>危険物</span>
-                  <strong>相談</strong>
-                </div>
-              </div>
-            </div>
+            <div className="hero-visual" />
           </div>
         </section>
 
@@ -88,8 +101,14 @@ function App() {
           <div className="container dispatch-layout">
             <div className="dispatch-intro">
               <span className="eyebrow">Dispatch Flow</span>
-              <h2>初動から復旧までの流れ</h2>
-              <p>現場判断と安全確保を同時に進行し、最短で復旧へ。</p>
+              <h2>出動から搬送までの流れ</h2>
+              <p>
+                状況確認から車両選定、現場対応、搬送まで。
+                <br />
+                専門知識と経験に基づいた判断で、迅速かつ安全に対応します。
+                <br />
+                一つひとつの工程を確実に積み重ね、確かな復旧へ導きます。
+              </p>
               <div className="dispatch-stat">
                 <span>平均初動</span>
                 <strong>15分</strong>
@@ -106,28 +125,40 @@ function App() {
                 <div className="step-index">01</div>
                 <div className="step-body">
                   <h3>指令受付</h3>
-                  <p>状況確認と現場情報の共有を即時に実施。</p>
+                  <p>事故・故障状況を正確に把握し、迅速な初動体制を整えます。</p>
+                </div>
+                <div className="step-icon">
+                  <img src={dispatchImages[0]} alt="指令受付の現場" />
                 </div>
               </div>
               <div className="dispatch-step">
                 <div className="step-index">02</div>
                 <div className="step-body">
                   <h3>出動判断</h3>
-                  <p>車両サイズと道路状況から最適チームを配置。</p>
+                  <p>車両状況と道路環境を総合判断し、最適な車両と人員を手配します。</p>
+                </div>
+                <div className="step-icon">
+                  <img src={dispatchImages[1]} alt="出動判断の準備" />
                 </div>
               </div>
               <div className="dispatch-step">
                 <div className="step-index">03</div>
                 <div className="step-body">
-                  <h3>現場復旧</h3>
-                  <p>牽引・姿勢補正・破片回収まで一括対応。</p>
+                  <h3>作業</h3>
+                  <p>安全確保を最優先に、状況に応じた確実な作業を実施します。</p>
+                </div>
+                <div className="step-icon">
+                  <img src={dispatchImages[2]} alt="作業の様子" />
                 </div>
               </div>
               <div className="dispatch-step">
                 <div className="step-index">04</div>
                 <div className="step-body">
-                  <h3>再開支援</h3>
-                  <p>交通再開と報告まで、安全確保を徹底。</p>
+                  <h3>搬送</h3>
+                  <p>車両状態を確認しながら、安全かつ責任を持って搬送します。</p>
+                </div>
+                <div className="step-icon">
+                  <img src={dispatchImages[3]} alt="搬送の様子" />
                 </div>
               </div>
             </div>
@@ -140,18 +171,100 @@ function App() {
               <span className="eyebrow">Coverage</span>
               <h2>大型・特殊案件に強い対応範囲</h2>
             </div>
+            <div className="cap-general">
+              <div className="cap-general-head">
+                <h3>一般的なトラブルも幅広く対応</h3>
+                <p>落車・脱輪・バッテリー上がり・スペア交換まで、日常のトラブルにも即対応します。</p>
+              </div>
+              <div className="cap-general-list">
+                <div className="cap-general-item">
+                  <img src={gen8} alt="落車・スタック" />
+                  <span>落車・スタック</span>
+                </div>
+                <div className="cap-general-item">
+                  <img src={gen7} alt="脱輪" />
+                  <span>脱輪</span>
+                </div>
+                <div className="cap-general-item">
+                  <img src={gen4} alt="スペア交換" />
+                  <span>スペア交換</span>
+                </div>
+                <div className="cap-general-item">
+                  <img src={gen2} alt="バッテリー上がり" />
+                  <span>バッテリー上がり</span>
+                </div>
+                <div className="cap-general-item">
+                  <img src={gen1} alt="燃料切れ" />
+                  <span>燃料切れ</span>
+                </div>
+                <div className="cap-general-item">
+                  <img src={gen6} alt="鍵閉じ込み" />
+                  <span>鍵閉じ込み</span>
+                </div>
+                <div className="cap-general-item">
+                  <img src={gen3} alt="タイヤバースト" />
+                  <span>タイヤバースト</span>
+                </div>
+                <div className="cap-general-item">
+                  <img src={gen5} alt="事故対応" />
+                  <span>事故対応</span>
+                </div>
+              </div>
+            </div>
             <div className="cap-grid">
               <article className="cap-card">
+                <div className="cap-icon">
+                  <svg viewBox="0 0 64 64" width="64" height="64">
+                    {/* キャブ */}
+                    <rect x="10" y="20" width="16" height="14" rx="2" fill="currentColor" opacity="0.8" />
+                    {/* ウィンドウ */}
+                    <rect x="12" y="22" width="6" height="5" fill="white" opacity="0.6" />
+                    <rect x="19" y="22" width="5" height="5" fill="white" opacity="0.6" />
+                    {/* ボディ */}
+                    <rect x="26" y="24" width="28" height="10" fill="currentColor" opacity="0.8" />
+                    {/* ホイール */}
+                    <circle cx="18" cy="38" r="4" fill="none" stroke="currentColor" strokeWidth="2" />
+                    <circle cx="50" cy="38" r="4" fill="none" stroke="currentColor" strokeWidth="2" />
+                    {/* アクスル */}
+                    <line x1="18" y1="38" x2="50" y2="38" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+                  </svg>
+                </div>
                 <h3>大型車・特装車</h3>
                 <p>トレーラー、バス、特殊車両の姿勢補正と搬送。</p>
                 <div className="cap-meta">HEAVY DUTY / 50t</div>
               </article>
               <article className="cap-card">
+                <div className="cap-icon">
+                  <svg viewBox="0 0 64 64" width="64" height="64">
+                    {/* 懐中電灯 */}
+                    <rect x="22" y="12" width="6" height="16" fill="currentColor" opacity="0.8" />
+                    <circle cx="25" cy="30" r="8" fill="currentColor" opacity="0.3" />
+                    <circle cx="25" cy="30" r="10" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.6" />
+                    {/* ビーム */}
+                    <path d="M 20 32 L 10 48" stroke="currentColor" strokeWidth="1.5" opacity="0.4" />
+                    <path d="M 25 32 L 25 50" stroke="currentColor" strokeWidth="1.5" opacity="0.5" />
+                    <path d="M 30 32 L 40 48" stroke="currentColor" strokeWidth="1.5" opacity="0.4" />
+                    {/* 星（24時間対応） */}
+                    <path d="M 45 15 L 47 22 L 54 23 L 48 28 L 50 35 L 45 31 L 40 35 L 42 28 L 36 23 L 43 22 Z" fill="currentColor" opacity="0.7" />
+                  </svg>
+                </div>
                 <h3>夜間・悪天候</h3>
                 <p>視界不良でも安全を確保する専任班が出動。</p>
                 <div className="cap-meta">NIGHT OPS / 365</div>
               </article>
               <article className="cap-card">
+                <div className="cap-icon">
+                  <svg viewBox="0 0 64 64" width="64" height="64">
+                    {/* 警告三角形 */}
+                    <path d="M 32 8 L 54 50 L 10 50 Z" fill="none" stroke="currentColor" strokeWidth="2" />
+                    {/* ！マーク */}
+                    <circle cx="32" cy="38" r="2" fill="currentColor" />
+                    <rect x="31" y="24" width="2" height="10" fill="currentColor" />
+                    {/* コーン */}
+                    <path d="M 20 48 L 23 32 L 17 48 Z" fill="currentColor" opacity="0.6" />
+                    <path d="M 44 48 L 47 32 L 41 48 Z" fill="currentColor" opacity="0.6" />
+                  </svg>
+                </div>
                 <h3>現場安全管理</h3>
                 <p>破片回収、通行規制の調整、二次被害防止。</p>
                 <div className="cap-meta">SAFETY FIRST</div>
@@ -212,24 +325,175 @@ function App() {
                 <br />
                 そんな想いを持つ仲間を、私たちは本気で募集しています。
               </p>
-              <a className="btn primary" href="#contact">採用について相談する</a>
+              <a className="btn primary" onClick={() => setRecruitModalOpen(true)} style={{ cursor: 'pointer' }}>募集詳細を見る</a>
             </div>
             <div className="recruit-panel">
               <div>
                 <span>募集職種</span>
-                <strong>レッカーオペレーター / 現場管理</strong>
+                <strong>一般事務 / 製造板金 / ドライバー</strong>
               </div>
               <div>
                 <span>勤務地</span>
-                <strong>本社拠点・主要高速沿線</strong>
+                <strong>栃木県栃木市</strong>
               </div>
               <div>
                 <span>待遇</span>
-                <strong>資格手当、夜間手当、研修制度</strong>
+                <strong>資格手当、昇給賞与あり</strong>
               </div>
             </div>
           </div>
         </section>
+
+        {recruitModalOpen && (
+          <div className="modal-overlay" onClick={() => setRecruitModalOpen(false)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <button className="modal-close" onClick={() => setRecruitModalOpen(false)}>&times;</button>
+
+              <div className="modal-header">
+                <span className="eyebrow">Job Information</span>
+                <h2>採用情報</h2>
+                <p>ピンチの現場に駆けつけるプロフェッショナルを募集しています。</p>
+              </div>
+
+              <div className="recruit-jobs">
+                <article className="job-card">
+                  <h3>一般事務</h3>
+                  <div className="job-section">
+                    <h4>職務内容</h4>
+                    <p>電話・来客対応、書類作成、データ入力、請求処理の補助など、社内の事務業務全般。</p>
+                  </div>
+                  <div className="job-section">
+                    <h4>応募条件</h4>
+                    <ul className="job-list">
+                      <li>基本的なPC操作ができる方</li>
+                      <li>丁寧な対応ができる方</li>
+                      <li>チームワークを大切にできる方</li>
+                    </ul>
+                  </div>
+                  <div className="job-section">
+                    <h4>勤務条件</h4>
+                    <ul className="job-list">
+                      <li>勤務地：栃木県栃木市</li>
+                      <li>勤務時間：日勤</li>
+                      <li>休日：会社カレンダーによる</li>
+                    </ul>
+                  </div>
+                  <div className="job-section">
+                    <h4>待遇</h4>
+                    <ul className="job-list">
+                      <li>資格手当あり</li>
+                      <li>昇給賞与あり</li>
+                      <li>各種社会保険完備</li>
+                    </ul>
+                  </div>
+                </article>
+
+                <article className="job-card">
+                  <h3>製造板金</h3>
+                  <div className="job-section">
+                    <h4>職務内容</h4>
+                    <p>車両製作・架装の板金加工、溶接補助、組立作業など、製造工程全般。</p>
+                  </div>
+                  <div className="job-section">
+                    <h4>応募条件</h4>
+                    <ul className="job-list">
+                      <li>ものづくりに興味のある方</li>
+                      <li>板金・溶接の経験者優遇</li>
+                      <li>チームで協力できる方</li>
+                    </ul>
+                  </div>
+                  <div className="job-section">
+                    <h4>勤務条件</h4>
+                    <ul className="job-list">
+                      <li>勤務地：栃木県栃木市</li>
+                      <li>勤務時間：日勤</li>
+                      <li>休日：会社カレンダーによる</li>
+                    </ul>
+                  </div>
+                  <div className="job-section">
+                    <h4>待遇</h4>
+                    <ul className="job-list">
+                      <li>資格手当あり</li>
+                      <li>昇給賞与あり</li>
+                      <li>各種社会保険完備</li>
+                    </ul>
+                  </div>
+                </article>
+
+                <article className="job-card">
+                  <h3>ドライバー</h3>
+                  <div className="job-section">
+                    <h4>職務内容</h4>
+                    <p>車両搬送、現場対応のサポート、日常点検など安全運行に関わる業務。</p>
+                  </div>
+                  <div className="job-section">
+                    <h4>応募条件</h4>
+                    <ul className="job-list">
+                      <li>普通自動車免許以上（中型・大型歓迎）</li>
+                      <li>安全運転を徹底できる方</li>
+                      <li>報告・連絡・相談を大切にできる方</li>
+                    </ul>
+                  </div>
+                  <div className="job-section">
+                    <h4>勤務条件</h4>
+                    <ul className="job-list">
+                      <li>勤務地：栃木県栃木市</li>
+                      <li>勤務時間：シフト制</li>
+                      <li>休日：会社カレンダーによる</li>
+                    </ul>
+                  </div>
+                  <div className="job-section">
+                    <h4>待遇</h4>
+                    <ul className="job-list">
+                      <li>資格手当あり</li>
+                      <li>昇給賞与あり</li>
+                      <li>各種社会保険完備</li>
+                    </ul>
+                  </div>
+                </article>
+              </div>
+
+              <div className="recruit-process">
+                <h3>採用までの流れ</h3>
+                <div className="process-steps">
+                  <div className="process-step">
+                    <div className="step-num">1</div>
+                    <div className="step-text">
+                      <strong>応募</strong>
+                      <p>お問い合わせフォームから職種を選んでご応募ください</p>
+                    </div>
+                  </div>
+                  <div className="process-step">
+                    <div className="step-num">2</div>
+                    <div className="step-text">
+                      <strong>書類選考</strong>
+                      <p>履歴書・職務経歴書をお送りいただき、書類選考を行います</p>
+                    </div>
+                  </div>
+                  <div className="process-step">
+                    <div className="step-num">3</div>
+                    <div className="step-text">
+                      <strong>面接</strong>
+                      <p>当社にてお会いし、職務内容や待遇について詳しくお伝えします</p>
+                    </div>
+                  </div>
+                  <div className="process-step">
+                    <div className="step-num">4</div>
+                    <div className="step-text">
+                      <strong>内定・入社</strong>
+                      <p>各研修を経て実務へ。サポート体制を整えて迎えます</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="recruit-cta">
+                <h3>興味をお持ちの方はこちら</h3>
+                <a className="btn primary" href="/apply.html">応募・ご相談</a>
+              </div>
+            </div>
+          </div>
+        )}
 
         <section id="company" className="section company">
           <div className="container company-inner">
@@ -241,7 +505,7 @@ function App() {
             <div className="company-grid">
               <div className="company-card">
                 <span>会社名</span>
-                <strong>株式会社スター・レッカー</strong>
+                <strong>有限会社ロイヤルサービス スターレッカー栃木</strong>
               </div>
               <div className="company-card">
                 <span>設立</span>
@@ -249,20 +513,33 @@ function App() {
               </div>
               <div className="company-card">
                 <span>代表</span>
-                <strong>代表取締役 星野 太郎</strong>
+                <strong>代表取締役社長 澁谷 治朗</strong>
               </div>
               <div className="company-card">
                 <span>事業内容</span>
-                <strong>レッカー / ロードサービス / 現場復旧</strong>
+                <strong>レッカー、ロードサービス、特殊車両等の製造・板金</strong>
               </div>
               <div className="company-card">
                 <span>保有車両</span>
-                <strong>大型レッカー 6台 / 中型 8台</strong>
+                <strong>6台</strong>
               </div>
               <div className="company-card">
                 <span>拠点</span>
-                <strong>本社・主要高速沿線 4拠点</strong>
+                <strong>栃木県栃木市大町20-46</strong>
               </div>
+            </div>
+            <div className="company-map" style={{ marginTop: '2rem', textAlign: 'center' }}>
+              <iframe
+                title="会社所在地マップ"
+                src="https://www.google.com/maps?q=%E6%A0%83%E6%9C%A8%E7%9C%8C%E6%A0%83%E6%9C%A8%E5%B8%82%E5%A4%A7%E7%94%BA20-46&output=embed"
+                width="100%"
+                height="260"
+                style={{ border: 0, borderRadius: '12px', maxWidth: '900px' }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+              <div style={{ fontSize: '0.9em', color: '#666', marginTop: '0.5em' }}>※地図は本社所在地の例です。実際の住所に合わせて調整可能です。</div>
             </div>
           </div>
         </section>
@@ -279,7 +556,12 @@ function App() {
               <div className="contact-cards">
                 <div>
                   <span>緊急連絡</span>
-                  <strong>0120-000-911</strong>
+                  <a className="contact-phone" href="tel:0282224949" aria-label="緊急連絡 0282-22-4949 に発信">
+                    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                      <path d="M 6 3 L 9 3 L 11 7 L 9 9 C 10.5 12 12 13.5 15 15 L 17 13 L 21 15 L 21 18 C 21 19.1 20.1 20 19 20 C 11.3 19.6 4.4 12.7 4 5 C 4 3.9 4.9 3 6 3 Z" fill="currentColor" />
+                    </svg>
+                    <strong>0282-22-4949</strong>
+                  </a>
                 </div>
                 <div>
                   <span>法人窓口</span>
@@ -297,6 +579,27 @@ function App() {
           </div>
         </section>
 
+        <section id="apply" className="section contact apply-section">
+          <div className="container contact-inner">
+            <div className="contact-copy">
+              <span className="eyebrow">Apply</span>
+              <h2>応募専用フォーム</h2>
+              <p>
+                ご応募・ご相談はこちらからお送りください。
+                内容を確認後、担当よりご連絡いたします。
+              </p>
+            </div>
+            <form className="contact-form">
+              <input type="text" placeholder="お名前" aria-label="お名前" />
+              <input type="email" placeholder="メールアドレス" aria-label="メールアドレス" />
+              <input type="tel" placeholder="電話番号" aria-label="電話番号" />
+              <input type="text" placeholder="希望職種" aria-label="希望職種" />
+              <textarea placeholder="応募・ご相談内容" rows="4" aria-label="応募・ご相談内容" />
+              <button className="btn primary" type="submit">応募する</button>
+            </form>
+          </div>
+        </section>
+
         <section className="section info">
           <div className="container info-inner">
             <div>
@@ -306,11 +609,11 @@ function App() {
             <div className="info-grid">
               <div>
                 <span>本社</span>
-                <strong>〒100-0000 東京都千代田区1-2-3</strong>
+                <strong>栃木県栃木市大町20-46</strong>
               </div>
               <div>
                 <span>代表連絡先</span>
-                <strong>03-0000-0000</strong>
+                <strong>0282-25-0001</strong>
               </div>
               <div>
                 <span>受付時間</span>

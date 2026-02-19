@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>応募専用フォーム | STARWRECKER</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Playfair+Display:wght@600&display=swap');
+
+        :root {
+            --primary-blue: #0066cc;
+            --dark-text: #333333;
+            --border-color: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+            background: #ffffff;
+            color: var(--dark-text);
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 40px 16px;
+        }
+
+        .page-layout {
+            width: min(1200px, 96vw);
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin: 0 0 12px;
+            font-family: 'Playfair Display', 'Noto Sans JP', serif;
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            margin: 0 0 24px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        form {
+            display: grid;
+            gap: 14px;
+        }
+
+        .job-panel {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 32px;
+            background: #ffffff;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+            position: relative;
+        }
+
+        .job-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0066cc, #00a3ff);
+        }
+
+        .job-panel h2 {
+            font-size: 16px;
+            margin: 0 0 8px;
+        }
+
+        .job-panel p {
+            margin: 0;
+            color: #666;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .job-panel .section {
+            margin-top: 10px;
+        }
+
+        .job-panel .section-title {
+            font-size: 12px;
+            color: #4a4a4a;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .job-panel ul {
+            margin: 0;
+            padding-left: 16px;
+            color: #666;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            background: #fff;
+        }
+
+        button {
+            background: var(--primary-blue);
+            color: #fff;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        button[disabled] {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .status {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .status.success {
+            color: #1a5fb4;
+            font-weight: 600;
+            white-space: pre-line;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(0, 102, 204, 0.2);
+        }
+
+        .back {
+            margin-top: 16px;
+            display: inline-block;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        @media (max-width: 900px) {
+            .page-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-layout">
+            <div class="card">
+                <h1>応募専用フォーム</h1>
+                <p>ご応募・ご相談はこちらからお送りください。内容を確認後、担当よりご連絡いたします。</p>
+                <form id="applyForm">
+                    <select id="jobSelect" aria-label="希望職種">
+                        <option value="">希望職種を選択</option>
+                        <option value="office">一般事務</option>
+                        <option value="metal">製造板金</option>
+                        <option value="driver">ドライバー</option>
+                    </select>
+                    <input type="text" placeholder="お名前" aria-label="お名前" />
+                    <input type="date" aria-label="生年月日" />
+                    <input type="email" placeholder="メールアドレス" aria-label="メールアドレス" />
+                    <input type="tel" placeholder="電話番号" aria-label="電話番号" />
+                    <textarea rows="4" placeholder="事前に聞きたいことや、ご相談がある場合はご記入ください。"
+                        aria-label="事前に聞きたいことや、ご相談がある場合はご記入ください。"></textarea>
+                    <button id="submitBtn" type="submit">応募する</button>
+                    <div id="status" class="status" aria-live="polite"></div>
+                </form>
+                <a class="back" href="/">ホームに戻る</a>
+            </div>
+            <div class="job-panel" id="jobPanel">
+                <h2>募集要項</h2>
+                <p>職種を選択すると、ここに募集要項が表示されます。</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const applyForm = document.getElementById('applyForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const status = document.getElementById('status');
+        const jobSelect = document.getElementById('jobSelect');
+        const jobPanel = document.getElementById('jobPanel');
+
+        const jobDetails = {
+            office: {
+                title: '一般事務',
+                body: `
+            <div class="section">
+              <div class="section-title">職務内容</div>
+              <p>電話・来客対応、書類作成、データ入力、請求処理の補助など、社内の事務業務全般。</p>
+            </div>
+            <div class="section">
+              <div class="section-title">応募条件</div>
+              <ul>
+                <li>基本的なPC操作ができる方</li>
+                <li>丁寧な対応ができる方</li>
+                <li>チームワークを大切にできる方</li>
+              </ul>
+            </div>
+            <div class="section">
+              <div class="section-title">勤務条件</div>
+              <ul>
+                <li>勤務地：栃木県栃木市</li>
+                <li>勤務時間：日勤</li>
+                <li>休日：会社カレンダーによる</li>
+              </ul>
+            </div>
+            <div class="section">
+              <div class="section-title">待遇</div>
+              <ul>
+                <li>資格手当あり</li>
+                <li>昇給賞与あり</li>
+                <li>各種社会保険完備</li>
+              </ul>
+            </div>
+          `,
+            },
+            metal: {
+                title: '製造板金',
+                body: `
+            <div class="section">
+              <div class="section-title">職務内容</div>
+              <p>車両製作・架装の板金加工、溶接補助、組立作業など、製造工程全般。</p>
+            </div>
+            <div class="section">
+              <div class="section-title">応募条件</div>
+              <ul>
+                <li>ものづくりに興味のある方</li>
+                <li>板金・溶接の経験者優遇</li>
+                <li>チームで協力できる方</li>
+              </ul>
+            </div>
+            <div class="section">
+              <div class="section-title">勤務条件</div>
+              <ul>
+                <li>勤務地：栃木県栃木市</li>
+                <li>勤務時間：日勤</li>
+                <li>休日：会社カレンダーによる</li>
+              </ul>
+            </div>
+            <div class="section">
+              <div class="section-title">待遇</div>
+              <ul>
+                <li>資格手当あり</li>
+                <li>昇給賞与あり</li>
+                <li>各種社会保険完備</li>
+              </ul>
+            </div>
+          `,
+            },
+            driver: {
+                title: 'ドライバー',
+                body: `
+            <div class="section">
+              <div class="section-title">職務内容</div>
+              <p>車両搬送、現場対応のサポート、日常点検など安全運行に関わる業務。</p>
+            </div>
+            <div class="section">
+              <div class="section-title">応募条件</div>
+              <ul>
+                <li>普通自動車免許以上（中型・大型歓迎）</li>
+                <li>安全運転を徹底できる方</li>
+                <li>報告・連絡・相談を大切にできる方</li>
+              </ul>
+            </div>
+            <div class="section">
+              <div class="section-title">勤務条件</div>
+              <ul>
+                <li>勤務地：栃木県栃木市</li>
+                <li>勤務時間：シフト制</li>
+                <li>休日：会社カレンダーによる</li>
+              </ul>
+            </div>
+            <div class="section">
+              <div class="section-title">待遇</div>
+              <ul>
+                <li>資格手当あり</li>
+                <li>昇給賞与あり</li>
+                <li>各種社会保険完備</li>
+              </ul>
+            </div>
+          `,
+            },
+        };
+
+        jobSelect.addEventListener('change', (event) => {
+            const value = event.target.value;
+            if (!value || !jobDetails[value]) {
+                jobPanel.innerHTML = '<h2>募集要項</h2><p>職種を選択すると、ここに募集要項が表示されます。</p>';
+                return;
+            }
+            const detail = jobDetails[value];
+            jobPanel.innerHTML = `<h2>${detail.title}</h2>${detail.body}`;
+        });
+
+        applyForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.textContent = '送信中...';
+            status.className = 'status';
+            status.textContent = '送信中...';
+
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = '応募する';
+                status.className = 'status success';
+                status.textContent = 'ご応募ありがとうございました。\n内容を確認のうえ、担当者よりご連絡いたしますので、今しばらくお待ちください。';
+                applyForm.reset();
+            }, 1200);
+        });
+    </script>
+</body>
+
+</html>
