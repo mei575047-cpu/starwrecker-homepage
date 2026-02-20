@@ -21,6 +21,7 @@ import gen5 from './assets/18127.png';
 import gen6 from './assets/18133.png';
 import gen7 from './assets/27830.png';
 import gen8 from './assets/28073.png';
+import contactBg from './assets/615893.jpg';
 
 function App() {
   const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
@@ -272,10 +273,17 @@ function App() {
             </div>
             <div className="cap-banner">
               <div>
-                <strong>法人運行支援</strong>
-                <span>専用ホットラインと月次レポートで運行を可視化。</span>
+                <strong>法人専用サポート窓口</strong>
+                <span>保険会社様・ディーラー様・法人車両管理ご担当者様へ。<br />専用窓口による迅速対応と出動実績の共有で、継続的な運行支援を行います。</span>
               </div>
-              <a className="btn ghost" href="#contact">法人相談をする</a>
+              <a
+                className="btn ghost"
+                href="/contact-corporate.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                業務提携・法人契約のご相談
+              </a>
             </div>
           </div>
         </section>
@@ -357,97 +365,137 @@ function App() {
 
               <div className="recruit-jobs">
                 <article className="job-card">
-                  <h3>一般事務</h3>
+                  <h3>一般事務（パート）</h3>
                   <div className="job-section">
-                    <h4>職務内容</h4>
-                    <p>電話・来客対応、書類作成、データ入力、請求処理の補助など、社内の事務業務全般。</p>
+                    <h4>仕事内容</h4>
+                    <p>レッカー車・大型特殊車両を支えるオフィスワーク。電話対応、データ入力、書類整理など。未経験でも安心してスタートできます。</p>
                   </div>
                   <div className="job-section">
-                    <h4>応募条件</h4>
+                    <h4>働きやすいポイント</h4>
                     <ul className="job-list">
-                      <li>基本的なPC操作ができる方</li>
-                      <li>丁寧な対応ができる方</li>
-                      <li>チームワークを大切にできる方</li>
+                      <li>週3日〜OK、扶養内も相談可能</li>
+                      <li>未経験・ブランクOK</li>
+                      <li>子育てとの両立可能、学校行事も考慮</li>
+                      <li>職場近くにスーパーあり、買い物に便利</li>
                     </ul>
                   </div>
                   <div className="job-section">
                     <h4>勤務条件</h4>
                     <ul className="job-list">
-                      <li>勤務地：栃木県栃木市</li>
-                      <li>勤務時間：日勤</li>
-                      <li>休日：会社カレンダーによる</li>
+                      <li>勤務地：栃木県栃木市大町20-46</li>
+                      <li>勤務時間：9:00〜18:00（週3日〜5日で相談可）</li>
+                      <li>休日：土日休み、夏期・年末年始・連休あり</li>
+                      <li>給与：時給1,150円〜（試用期間3ヶ月：時給1,068円）</li>
                     </ul>
                   </div>
                   <div className="job-section">
-                    <h4>待遇</h4>
+                    <h4>待遇・応募資格</h4>
                     <ul className="job-list">
-                      <li>資格手当あり</li>
-                      <li>昇給賞与あり</li>
-                      <li>各種社会保険完備</li>
+                      <li>社会保険完備（健康・厚生・雇用・労災）</li>
+                      <li>交通費支給（規定あり）</li>
+                      <li>要普通免許、学歴不問</li>
                     </ul>
                   </div>
                 </article>
 
                 <article className="job-card">
-                  <h3>製造板金</h3>
+                  <h3>製造板金（正社員）</h3>
                   <div className="job-section">
-                    <h4>職務内容</h4>
-                    <p>車両製作・架装の板金加工、溶接補助、組立作業など、製造工程全般。</p>
+                    <h4>仕事内容</h4>
+                    <p>特殊車輛（レッカー車・大型車）のボディ製造・組立・鈑金・塗装作業。未経験からプロの技術を身につけられます。</p>
                   </div>
                   <div className="job-section">
-                    <h4>応募条件</h4>
+                    <h4>未経験でも安心</h4>
                     <ul className="job-list">
-                      <li>ものづくりに興味のある方</li>
-                      <li>板金・溶接の経験者優遇</li>
-                      <li>チームで協力できる方</li>
+                      <li>OJT研修で工具の使い方から丁寧に指導</li>
+                      <li>簡単な補助作業からスタート</li>
+                      <li>チームで協力、困った時もすぐ聞ける環境</li>
+                      <li>スキルアップ支援・資格取得補助制度あり</li>
                     </ul>
                   </div>
                   <div className="job-section">
                     <h4>勤務条件</h4>
                     <ul className="job-list">
-                      <li>勤務地：栃木県栃木市</li>
-                      <li>勤務時間：日勤</li>
-                      <li>休日：会社カレンダーによる</li>
+                      <li>勤務地：栃木県栃木市大町20-46</li>
+                      <li>勤務時間：9:00〜18:00（日勤のみ）</li>
+                      <li>休日：週休2日制（日曜+他1日）、祝日、夏期・年末年始</li>
+                      <li>給与：月給270,000〜350,000円（未経験250,000円～）</li>
                     </ul>
                   </div>
                   <div className="job-section">
-                    <h4>待遇</h4>
+                    <h4>待遇・応募資格</h4>
                     <ul className="job-list">
-                      <li>資格手当あり</li>
-                      <li>昇給賞与あり</li>
-                      <li>各種社会保険完備</li>
+                      <li>社会保険完備、昇給・賞与あり</li>
+                      <li>交通費支給（規定あり）</li>
+                      <li>要普通免許、学歴・経験・資格不問</li>
                     </ul>
                   </div>
                 </article>
 
                 <article className="job-card">
-                  <h3>ドライバー</h3>
+                  <h3>レッカー車ドライバー（正社員）</h3>
                   <div className="job-section">
-                    <h4>職務内容</h4>
-                    <p>車両搬送、現場対応のサポート、日常点検など安全運行に関わる業務。</p>
+                    <h4>仕事内容</h4>
+                    <p>故障・事故車の移動・搬送、応急処置対応。「車の救急隊」として社会貢献度が高く、未経験からプロを目指せます。</p>
                   </div>
                   <div className="job-section">
-                    <h4>応募条件</h4>
+                    <h4>未経験からプロへ</h4>
                     <ul className="job-list">
-                      <li>普通自動車免許以上（中型・大型歓迎）</li>
-                      <li>安全運転を徹底できる方</li>
-                      <li>報告・連絡・相談を大切にできる方</li>
+                      <li>充実の資格取得補助制度（牽引免許など）</li>
+                      <li>安心のスタートアップ研修、ベテラン先輩と同行</li>
+                      <li>頑張り次第で高収入（月給50万円も可能）</li>
+                      <li>お客様から直接感謝される、やりがい満点の仕事</li>
                     </ul>
                   </div>
                   <div className="job-section">
                     <h4>勤務条件</h4>
                     <ul className="job-list">
-                      <li>勤務地：栃木県栃木市</li>
-                      <li>勤務時間：シフト制</li>
-                      <li>休日：会社カレンダーによる</li>
+                      <li>勤務地：栃木県栃木市大町20-46</li>
+                      <li>勤務時間：シフト制・実働8時間（9:30〜/13:00〜/23:00〜）</li>
+                      <li>休日：完全週休2日制、夏期・年末年始・連休</li>
+                      <li>給与：月給285,000〜500,000円（試用期間3ヶ月：月給230,000円）</li>
                     </ul>
                   </div>
                   <div className="job-section">
-                    <h4>待遇</h4>
+                    <h4>待遇・応募資格</h4>
                     <ul className="job-list">
-                      <li>資格手当あり</li>
-                      <li>昇給賞与あり</li>
-                      <li>各種社会保険完備</li>
+                      <li>社会保険完備、昇給・賞与、制服貸与</li>
+                      <li>交通費支給（規定あり）、免許取得支援制度</li>
+                      <li>準中型免許又は普通免許、40歳以下</li>
+                    </ul>
+                  </div>
+                </article>
+
+                <article className="job-card">
+                  <h3>レッカー車ドライバー（アルバイト）</h3>
+                  <div className="job-section">
+                    <h4>仕事内容</h4>
+                    <p>故障・事故車の移動・搬送、応急処置対応。「車の救急隊」として社会貢献度が高く、未経験からプロを目指せます。</p>
+                  </div>
+                  <div className="job-section">
+                    <h4>未経験からプロへ</h4>
+                    <ul className="job-list">
+                      <li>充実の資格取得補助制度（牽引免許など）</li>
+                      <li>安心のスタートアップ研修、ベテラン先輩と同行</li>
+                      <li>週4日〜勤務OK、柔軟なシフト対応</li>
+                      <li>お客様から直接感謝される、やりがい満点の仕事</li>
+                    </ul>
+                  </div>
+                  <div className="job-section">
+                    <h4>勤務条件</h4>
+                    <ul className="job-list">
+                      <li>勤務地：栃木県栃木市大町20-46</li>
+                      <li>勤務時間：シフト制・実働8時間（9:30〜/13:00〜/23:00〜）</li>
+                      <li>休日：週4日〜勤務、シフト相談可</li>
+                      <li>給与：時給1,200円〜</li>
+                    </ul>
+                  </div>
+                  <div className="job-section">
+                    <h4>待遇・応募資格</h4>
+                    <ul className="job-list">
+                      <li>社会保険完備、制服貸与</li>
+                      <li>交通費支給（規定あり）、免許取得支援制度</li>
+                      <li>準中型免許又は普通免許</li>
                     </ul>
                   </div>
                 </article>
@@ -493,7 +541,7 @@ function App() {
             <div className="section-head">
               <span className="eyebrow">Company</span>
               <h2>会社概要</h2>
-              <p>現場第一の運用体制で、迅速・安全・確実な復旧を支援。</p>
+              <p>乗用車から大型・特殊車両まで幅広く対応し、確かな技術と体制で現場復旧を行っています。</p>
             </div>
             <div className="company-grid">
               <div className="company-card">
@@ -537,7 +585,7 @@ function App() {
           </div>
         </section>
 
-        <section id="contact" className="section contact">
+        <section id="contact" className="section contact" style={{backgroundImage: `url(${contactBg})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
           <div className="container contact-inner">
             <div className="contact-copy">
               <span className="eyebrow">Contact</span>
@@ -563,8 +611,7 @@ function App() {
               </div>
             </div>
             <form className="contact-form">
-              <input type="text" placeholder="会社名" aria-label="会社名" />
-              <input type="text" placeholder="ご担当者名" aria-label="ご担当者名" />
+              <input type="text" placeholder="お名前" aria-label="お名前" />
               <input type="email" placeholder="メールアドレス" aria-label="メールアドレス" />
               <textarea placeholder="お問い合わせ内容" rows="4" aria-label="お問い合わせ内容" />
               <button className="btn primary" type="submit">送信する</button>

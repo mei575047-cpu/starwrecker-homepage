@@ -859,6 +859,7 @@ main {
   background: var(--light-gray);
   padding: 40px;
   border-radius: 8px;
+  margin-top: 60px;
 }
 
 .recruit-process h3 {
@@ -1064,11 +1065,28 @@ main {
 }
 
 /* ====== CONTACT ====== */
+.contact {
+  position: relative;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+}
+
 .contact-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: flex-start;
+  position: relative;
+  z-index: 1;
 }
 
 .contact-copy h2 {

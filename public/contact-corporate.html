@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>法人専用お問い合わせフォーム | STARWRECKER</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Playfair+Display:wght@600&display=swap');
+        :root {
+            --primary-blue: #0066cc;
+            --dark-text: #333333;
+            --border-color: #e0e0e0;
+            --white: #ffffff;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+            background: #ffffff;
+            color: var(--dark-text);
+        }
+        .page {
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 40px 16px;
+        }
+        .page-layout {
+            width: min(600px, 96vw);
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            padding: 40px 32px;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+        p {
+            margin-bottom: 24px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-blue);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .status {
+            margin-top: 16px;
+            color: var(--primary-blue);
+        }
+        .inquiry-checkbox {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+        .inquiry-checkbox input {
+            margin: 0 8px 0 0;
+            width: auto;
+        }
+        .inquiry-checkbox label {
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="page-layout">
+            <h1>法人専用お問い合わせフォーム</h1>
+            <p>法人のお問い合わせ・ご相談はこちらからお送りください。内容を確認後、担当よりご連絡いたします。<br />また、大型・特殊案件をご検討の企業様へ。<br />事前情報をご記載いただくことで、迅速な対応が可能です。</p>
+            <form id="contactForm">
+                <div style="font-weight:bold;margin-bottom:16px;">① 基本情報</div>
+                <label for="company">会社名（必須）</label>
+                <input type="text" id="company" aria-label="会社名" required />
+                <label for="department">部署名</label>
+                <input type="text" id="department" aria-label="部署名" />
+                <label for="person">ご担当者名（必須）</label>
+                <input type="text" id="person" aria-label="ご担当者名" required />
+                <label for="tel">電話番号（必須）</label>
+                <input type="tel" id="tel" aria-label="電話番号" required />
+                <label for="email">メールアドレス（必須）</label>
+                <input type="email" id="email" aria-label="メールアドレス" required />
+                <div style="font-weight:bold;margin:20px 0 12px 0;">② ご相談内容</div>
+                <div style="margin-bottom:16px;">
+                  <div class="inquiry-checkbox"><label><input type="checkbox" name="inquiry" value="業務提携について"> 業務提携について</label></div>
+                  <div class="inquiry-checkbox"><label><input type="checkbox" name="inquiry" value="継続契約について"> 継続契約について</label></div>
+                  <div class="inquiry-checkbox"><label><input type="checkbox" name="inquiry" value="大型・特殊車両の搬送依頼"> 大型・特殊車両の搬送依頼</label></div>
+                  <div class="inquiry-checkbox"><label><input type="checkbox" name="inquiry" value="スポット依頼"> スポット依頼</label></div>
+                  <div class="inquiry-checkbox"><label><input type="checkbox" name="inquiry" value="見積依頼"> 見積依頼</label></div>
+                  <div class="inquiry-checkbox"><label><input type="checkbox" name="inquiry" value="その他"> その他</label></div>
+                </div>
+                <div style="font-weight:bold;margin:20px 0 12px 0;">③ 車両・案件情報</div>
+                <label for="vehicle">車両種別</label>
+                <input type="text" id="vehicle" placeholder="大型トラック／トレーラー／バス／特殊車両／その他" aria-label="車両種別" />
+                <label for="weight">推定重量（任意）</label>
+                <input type="text" id="weight" placeholder="例：5t" aria-label="推定重量" />
+                <label for="environment">現場環境</label>
+                <input type="text" id="environment" placeholder="高速道路／一般道／会社敷地内／車庫／その他" aria-label="現場環境" />
+                <label for="area">対応エリア</label>
+                <input type="text" id="area" placeholder="株式会社○○栃木営業所/栃木県○○市" aria-label="対応エリア" />
+                <label for="quantity">想定台数</label>
+                <input type="text" id="quantity" placeholder="月〇台程度" aria-label="想定台数" />
+                <label for="date">希望日</label>
+                <input type="date" id="date" aria-label="希望日" />
+                <div style="font-weight:bold;margin:20px 0 8px 0;">④ 詳細記入欄（自由入力）</div>
+                <p style="margin:0 0 12px 0;font-size:0.95rem;">案件の詳細やご要望をご記入ください。</p>
+                <label for="details">詳細</label>
+                <textarea id="details" rows="4" aria-label="詳細記入欄"></textarea>
+                <button id="submitBtn" type="submit">送信する</button>
+                <button type="button" id="backBtn" style="margin-top:8px;background:#eee;color:#333;">ホームページに戻る</button>
+                <div class="status" id="status"></div>
+            </form>
+        </div>
+    </div>
+    <script>
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const backBtn = document.getElementById('backBtn');
+        const status = document.getElementById('status');
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.textContent = '送信中';
+            status.textContent = '';
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = '送信する';
+                status.textContent = 'お問い合わせありがとうございました。内容を確認のうえ、担当者よりご連絡いたします。';
+                status.style.color = 'var(--primary-blue)';
+                status.style.marginTop = '16px';
+                contactForm.reset();
+            }, 1500);
+        });
+        backBtn.addEventListener('click', () => {
+            window.location.href = '/index.html';
+        });
+    </script>
+</body>
+</html>
